@@ -1,5 +1,5 @@
 --------------------------------------------------------------------
-Q1. Convert a given number of days into months and days.
+Q1. Convert a given number of days into months and remaining days.
 --------------------------------------------------------------------
 
 #include<stdio.h> 
@@ -40,9 +40,7 @@ int main()
 	printf("Enter a & B: ");
 	scanf("%d %d", &a, &b);   
 	printf("Before swap a=%d b=%d",a,b);      
-	a=a+b;  
-	b=a-b; 
-	a=a-b;
+	a^=b^=a;
 	printf("\nAfter swap a=%d b=%d",a,b);    
 	return 0;  
 }   
@@ -85,14 +83,13 @@ Q17. Generate the following Pyramid Pattern:
 int main()    
 {     
 	int c=97, i, j;
-	for(i=1;i<=4;i++)
+	for(i=0;i<4;i++)
 	{
-		for(j=1;j<=i;j++)
+		for(j=0;j<=i;j++)
 		{
-			printf("%c", (char)c);
-			c++;
+			printf("%c", c+j);
+			
 		}
-		c=97;
 		printf("\n");
 	}
 	return 0;  
